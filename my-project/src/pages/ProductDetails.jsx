@@ -21,7 +21,7 @@ const ProductDetails = () => {
   return (
     <div className="p-10 bg-gray-100 min-h-screen flex flex-col items-center">
       <h2 className="text-3xl font-bold mb-6 text-gray-800">{product.name}</h2>
-      <img src={product.image} alt={product.name} className="w-80 h-80 object-cover mb-4 rounded-lg" />
+      <img src={product.image} alt={product.name} className="w-60 h-60 object-cover mb-4 rounded-lg" />
       <p className="text-lg text-gray-700 mb-4">{product.description}</p>
       <p className="text-xl text-blue-600 font-bold">{product.price}</p>
       <Link to="/" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">Back to Products</Link>
