@@ -27,19 +27,19 @@ const Navbar = () => (
 );
 
 const Hero = () => (
-  <section className="text-center py-20 bg-gradient-to-r from-purple-600 to-purple-500 text-white">
+  <section className="text-center py-5 bg-gradient-to-r from-purple-600 to-purple-500 text-white">
     <h1 className="text-5xl font-bold">Welcome to Phlip Store</h1>
     <p className="mt-4 text-lg">Your one-stop shop for the latest gadgets and accessories.</p>
   </section>
 );
 
 const ProductList = () => (
-  <section id="products" className="py-10 text-center bg-gray-100">
-    <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Products</h2>
+  <section id="products" className="py-3 text-center bg-gray-100">
+    <h2 className="text-3xl font-bold mb-3 text-gray-800">Our Products</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
       {products.map((product) => (
-        <Card key={product.id} className="p-4 shadow-lg bg-white rounded-lg">
-          <img src={product.image} alt={product.name} className="w-full mb-4 rounded-md" />
+        <Card key={product.id} className="p-8 shadow-lg bg-white rounded-lg">
+          <img src={product.image} alt={product.name} className="w-full mb-3 rounded-md" />
           <CardContent>
             <h3 className="text-xl font-semibold text-gray-900">{product.name}</h3>
             <p className="text-lg text-blue-600 font-bold">{product.price}</p>
