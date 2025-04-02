@@ -1,17 +1,19 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Card, CardContent } from "./components/Card";
 import { Button } from "./components/Button";
 import { ShoppingCart } from "lucide-react";
-import {  Facebook, Twitter, Instagram } from "lucide-react";
+import { Facebook, Twitter, Instagram } from "lucide-react";
+import ProductDetails from "./pages/ProductDetails";
 
 import i1 from "./assets/i1.jpg";
 import i2 from "./assets/i2.jpg";
 import i3 from "./assets/i3.jpg";
 
 const products = [
-  { id: 1, name: "Smartphone", price: "Rs. 60000", image: i1 },
-  { id: 2, name: "Headphones", price: "Rs. 5000", image: i2 }, 
-  { id: 3, name: "Laptop", price: "Rs. 99999", image: i3 },
+  { id: 1, name: "Realme Narzo 70 5g", price: "Rs. 60000", image: i1 },
+  { id: 2, name: "HR Wireless Headphones", price: "Rs. 5000", image: i2 },
+  { id: 3, name: "Apple MacBook Pro i7", price: "Rs. 99999", image: i3 },
 ];
 
 const Navbar = () => (
@@ -41,9 +43,16 @@ const ProductList = () => (
           <CardContent>
             <h3 className="text-xl font-semibold text-gray-900">{product.name}</h3>
             <p className="text-lg text-blue-600 font-bold">{product.price}</p>
-            <Button className="mt-4 flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
-              <ShoppingCart size={16} /> Add to Cart
-            </Button>
+            <div className="flex gap-2 justify-center mt-4">
+              <Button className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+                <ShoppingCart size={16} /> Add to Cart
+              </Button>
+              <Link to={`/product/${product.id}`}>
+                <Button className="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded-md">
+                  View
+                </Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       ))}
@@ -62,13 +71,22 @@ const Footer = () => (
   </footer>
 );
 
-const App = () => (
+const Home = () => (
   <div>
     <Navbar />
     <Hero />
     <ProductList />
     <Footer />
   </div>
+);
+
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
+    </Routes>
+  </Router>
 );
 
 export default App;
