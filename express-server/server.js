@@ -6,9 +6,14 @@ const PORT = 5000;
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// Test Route
+// Root route
 app.get("/", (req, res) => {
   res.send("Express server is running on port 5000!");
+});
+
+// GET /welcome route
+app.get("/welcome", (req, res) => {
+  res.json({ message: "Welcome to Express!" });
 });
 
 // Start the server
